@@ -1,6 +1,7 @@
 # LangChain Tool Calling Agent
 
 A conversational LangChain agent powered by GPT-4o with Scalekit integration that demonstrates tool calling capabilities.
+This project serves as a foundation for building LangChain agents with real API integrations.
 
 ## Features
 
@@ -24,11 +25,6 @@ A conversational LangChain agent powered by GPT-4o with Scalekit integration tha
    ```bash
    pip install -r requirements.txt
    ```
-   
-   Or using pyproject.toml:
-   ```bash
-   pip install -e .
-   ```
 3. Set up your environment variables:
    ```bash
    cp .env.example .env
@@ -43,7 +39,7 @@ Create a `.env` file with the following variables:
 # OpenAI Configuration
 OPENAI_API_KEY=your_openai_api_key_here
 
-# Scalekit Configuration  
+# Scalekit Configuration From dashboard
 SCALEKIT_CLIENT_ID=your_scalekit_client_id
 SCALEKIT_CLIENT_SECRET=your_scalekit_client_secret
 SCALEKIT_ENV_URL=your_scalekit_environment_url
@@ -65,21 +61,10 @@ SCALEKIT_ENV_URL=your_scalekit_environment_url
 You: Hello!
 Agent: Hi! I can help you with various tasks using connected services.
 
-You: fetch my 1st unread email
+You: fetch my first unread email
 ```
 
-## How It Works
 
-### Authorization Flow
-- The agent will prompt you to authorize each connected service
-- Visit the provided links to complete OAuth authorization
-- Press Enter after completing each authorization
-
-### Agent Architecture
-- **GPT-4o Model**: Uses OpenAI's latest model for intelligent responses
-- **Scalekit Integration**: Provides secure access to various service APIs
-- **Tool Calling**: Agent automatically decides when to use tools based on conversation context
-- **Chat History**: Maintains conversation context across multiple exchanges
 
 ## Configuration Options
 
@@ -87,15 +72,14 @@ In `main.py`, you can customize:
 
 ```python
 user_name = "user-1234"  # Change to your desired identifier
-connection_names = ["gmail"]  # Add more services as needed
+connection_names = ["gmail"]  # Add more connection names as needed
 ```
-
-
 ## Extending the Agent
 
 To add more services:
-1. Add the service name to `connection_names` array
-2. Ensure the connection is configured in your Scalekit dashboard
+1. Add your connection name to `connection_names` array
+2. Ensure the connection is configured in your Scalekit dashboard [app.scalekit.com](https://app.scalekit.com)
+ Agent Connect -> Connections -> Create Connection
 3. The agent will automatically include tools for the new service
 
-This project serves as a foundation for building LangChain agents with real API integrations.
+![Create A conenction](https://github.com/user-attachments/assets/98f7bbad-08a2-4a42-a9f8-c6301cfb72a1)
