@@ -82,4 +82,4 @@ To add more services:
  Agent Connect -> Connections -> Create Connection
 3. The agent will automatically include tools for the new service
 
-![Agent Demo](./assets/create_connection.gif)
+![Create A conenction](https://github.com/user-attachments/assets/98f7bbad-08a2-4a42-a9f8-c6301cfb72a1)
