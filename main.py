@@ -16,7 +16,7 @@ scalekit = scalekit.client.ScalekitClient(
 actions = scalekit.actions
 
 user_name = "user-1234"  # Change this to your desired identifier
-connection_names = ["gmail"] # Add more connection names as needed. Remember to create connections in Scalekit dashboard
+connection_names = ["gmail", "slack"] # Add more connection names as needed. Remember to create connections in Scalekit dashboard
 
 
 
@@ -40,7 +40,8 @@ def create_tool_agent():
     # Define the tools
     scalekit_tools = actions.langchain.get_tools(
         identifier= user_name,
-        connection_names= connection_names
+        connection_names= connection_names,
+        page_size=100
     ) 
     print (f"Using tools: {[tool.name for tool in scalekit_tools]}")
     
