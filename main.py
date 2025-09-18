@@ -16,7 +16,7 @@ scalekit = scalekit.client.ScalekitClient(
 actions = scalekit.actions
 
 user_name = "user-1234"  # Change this to your desired identifier
-connection_names = ["gmail", "slack"] # Add more connection names as needed. Remember to create connections in Scalekit dashboard
+connection_names = ["gmail"] # Add more connection names as needed. Remember to create connections in Scalekit dashboard
 
 
 
