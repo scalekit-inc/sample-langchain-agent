@@ -44,6 +44,8 @@ SCALEKIT_CLIENT_ID=your_scalekit_client_id
 SCALEKIT_CLIENT_SECRET=your_scalekit_client_secret
 SCALEKIT_ENV_URL=your_scalekit_environment_url
 ```
+get these from your Scalekit dashboard at [app.scalekit.com](https://app.scalekit.com) 
+Developers-> Settings -> API Credentials
 
 ## Usage
 
