@@ -5,8 +5,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_openai import ChatOpenAI
 import scalekit.client
-
+from dotenv import load_dotenv
 # Load environment variables from .env file
+load_dotenv()
 scalekit = scalekit.client.ScalekitClient(
     client_id=os.getenv("SCALEKIT_CLIENT_ID"),
     client_secret=os.getenv("SCALEKIT_CLIENT_SECRET"),
@@ -15,7 +16,7 @@ scalekit = scalekit.client.ScalekitClient(
 actions = scalekit.actions
 
 user_name = "user-1234"  # Change this to your desired identifier
-connection_names = ["gmail"] # Add more connection names as needed. Remember to create connections in Scalekit dashboard
+connection_names = ["gmail", "slack"] # Add more connection names as needed. Remember to create connections in Scalekit dashboard
 
 
 
@@ -25,7 +26,7 @@ def create_tool_agent():
     llm = ChatOpenAI(
         model="gpt-4o",
         temperature=0.1,
-        api_key=os.getenv("OPENAI_API_KEY"
+        api_key=os.getenv("OPENAI_API_KEY")
     )
     
     for conn_name in connection_names:  
@@ -39,7 +40,8 @@ def create_tool_agent():
     # Define the tools
     scalekit_tools = actions.langchain.get_tools(
         identifier= user_name,
-        connection_names= connection_names
+        connection_names= connection_names,
+        page_size=100
     ) 
     print (f"Using tools: {[tool.name for tool in scalekit_tools]}")
     
@@ -83,15 +85,21 @@ def main():
             if not user_input:
                 continue
             
-            print("Agent: ", end="", flush=True)
-            
             # Use the real LangChain agent with GPT-4o
             response = agent.invoke({
                 "input": user_input,
                 "chat_history": chat_history
             })
             agent_response = response["output"]
-            print(agent_response)
+            
+            # Only print "Agent: " if no tools were used (regular conversation)
+            if "intermediate_steps" in response and len(response["intermediate_steps"]) > 0:
+                # Tools were used, show processing message and then the response
+                print("🔧 Agent is processing tool call...")
+                print(agent_response)
+            else:
+                # No tools used, print with "Agent: " prefix
+                print(f"Agent: {agent_response}")
             
             # Update chat history
             chat_history.extend([
