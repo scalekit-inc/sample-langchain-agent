@@ -81,7 +81,7 @@ connection_names = ["gmail"]  # Add more connection names as needed
 To add more services:
 1. Add your connection name to `connection_names` array
 2. Ensure the connection is configured in your Scalekit dashboard [app.scalekit.com](https://app.scalekit.com)
- Agent Connect -> Connections -> Create Connection
+ Agent Actions -> Connections -> Create Connection
 3. The agent will automatically include tools for the new service
 
 ![Create A conenction](https://github.com/user-attachments/assets/98f7bbad-08a2-4a42-a9f8-c6301cfb72a1)
