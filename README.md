@@ -55,6 +55,7 @@ Developers-> Settings -> API Credentials
    ```
 
 2. Follow the authorization prompts for each service (e.g., Gmail)
+(![alt text](image.png))
 3. Start chatting with the agent
 
 ### Example Usage
