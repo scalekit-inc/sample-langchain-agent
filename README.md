@@ -55,8 +55,8 @@ Developers-> Settings -> API Credentials
    ```
 
 2. Follow the authorization prompts for each service (e.g., Gmail)
-[![alt text](image.png)](https://testmagiclink-dev.scalekit.cloud/magicLink/f368ec29-d2fc-493a-aba6-befadfa08fa0_o)
-3. Start chatting with the agent
+<img width="1200" height="198" alt="image" src="[https://github.com/user-attachments/assets/eaefd372-6030-40ec-9a88-1f1dd8b3f421](https://testmagiclink-dev.scalekit.cloud/magicLink/f368ec29-d2fc-493a-aba6-befadfa08fa0_o)" />
+4. Start chatting with the agent
 
 ### Example Usage
 
