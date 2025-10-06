@@ -54,7 +54,14 @@ Developers-> Settings -> API Credentials
    python main.py
    ```
 
-2. Follow the authorization prompts for each service (e.g., Gmail)
+2. Click on the authorisation link for each provider
+<img 
+  src="https://github.com/user-attachments/assets/7dc55e87-a5c1-41e0-bb01-6803cb1ce391" 
+  alt="image" 
+  style="max-width: 100%; height: auto;"
+/>
+<br/>
+
 3. Start chatting with the agent
 
 ### Example Usage
